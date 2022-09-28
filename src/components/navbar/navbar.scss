@@ -13,6 +13,14 @@ nav.navbar.scrolled {
     background-color: white;
 }
 
+.first {
+    color: #f17732 !important;
+}
+
+.nav-link:hover {
+    color: #f17732 !important;
+}
+
 nav.navbar .navbar-nav .first,
 nav.navbar .navbar-nav .link {
     font-family: "Montserrat", sans-serif;
@@ -53,41 +61,66 @@ nav.navbar .navbar-nav .link {
         -ms-transition: all .3s ease 0s, visibility 0s linear .3s, z-index 0s linear .01s;
         -o-transition: all .3s ease 0s, visibility 0s linear .3s, z-index 0s linear .01s;
 
+
+
         ul {
             list-style: none;
-
-            &:hover li::before {
-                width: 100%;
-            }
+            color: #666;
 
             li {
                 position: relative;
                 padding: 5px 0;
                 width: fit-content;
-
-                &::before {
-                    content: "";
-                    width: 0;
-                    height: 1px;
-                    background: rgb(45, 13, 248);
-                    position: absolute;
-                    bottom: 0;
-                    left: 0;
-                    transition: all .3s linear;
-                    -webkit-transition: all .3s linear;
-                    -moz-transition: all .3s linear;
-                    -ms-transition: all .3s linear;
-                    -o-transition: all .3s linear;
-                }
             }
 
         }
     }
 }
 
-nav.navbar .navbar-nav .menu:hover .drop,
-nav.navbar .navbar-nav .menu:focus .drop,
-nav.navbar .navbar-nav .menu:focus-within .drop {
+ul li::before {
+    content: "";
+    width: 0;
+    height: 1px;
+    background: rgb(45, 13, 248);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: all .6s linear;
+    -webkit-transition: all .6s linear;
+    -moz-transition: all .6s linear;
+    -ms-transition: all .6s linear;
+    -o-transition: all .6s linear;
+    transform-origin: left;
+}
+
+ul li::after {
+    content: "";
+    width: 0;
+    height: 1px;
+    background: rgb(45, 13, 248);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transition: all .6s linear;
+    -webkit-transition: all .6s linear;
+    -moz-transition: all .6s linear;
+    -ms-transition: all .6s linear;
+    -o-transition: all .6s linear;
+    transform-origin: right;
+}
+
+.drop ul li:hover::after,
+.drop ul li:hover::before {
+    width: 100%;
+}
+
+.drop ul li:hover {
+    color: #1f2278;
+}
+
+nav.navbar .navbar-nav .menu:hover>.drop,
+nav.navbar .navbar-nav .menu:focus>.drop,
+nav.navbar .navbar-nav .menu:focus-within>.drop {
     visibility: visible;
     opacity: 1;
     z-index: 1;
@@ -99,9 +132,7 @@ nav.navbar .navbar-nav .menu:focus-within .drop {
     transition-delay: 0s, 0s, 0.3s;
 }
 
-nav.navbar .navbar-nav .first:hover {
-    color: #f17732;
-}
+
 
 nav.navbar .navbar-nav .nav-link i {
     color: #bbbbcf;
